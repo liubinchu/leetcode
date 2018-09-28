@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

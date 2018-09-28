@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_189 {
     public void reverse(int[] nums, int i, int j){

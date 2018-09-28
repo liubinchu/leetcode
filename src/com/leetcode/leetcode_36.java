@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 import java.util.HashSet;
 import java.util.Set;

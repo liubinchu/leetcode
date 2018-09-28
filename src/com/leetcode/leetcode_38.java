@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_38 {
     public String count_say_once(String input){

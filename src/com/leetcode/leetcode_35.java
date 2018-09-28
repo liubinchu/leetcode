@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_35 {
     public int searchInsert(int[] nums, int target) {

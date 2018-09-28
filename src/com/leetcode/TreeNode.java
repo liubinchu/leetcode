@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class TreeNode {
     int val;

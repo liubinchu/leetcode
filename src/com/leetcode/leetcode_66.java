@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_66 {
     public int[] plusOne(int[] digits) {

@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_122 {
     public int maxProfit(int[] prices) {

@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_28 {
     public int strStr(String haystack, String needle) {

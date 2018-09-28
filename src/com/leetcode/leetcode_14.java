@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_14 {
     public  String longestCommonPrefix(String[] strs) {

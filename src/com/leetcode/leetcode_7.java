@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_7 {
     // 两个点 1/ 如何判断 数值范围越界  2. 如何反转  不断 %10 /10 取得最有一位   结果变量 不断 *10+取得的最有一位

@@ -1,4 +1,4 @@
-package com.liubinchu;
+package com.leetcode;
 
 public class leetcode_8 {
     // 主要有两个部分 1. 找到第一个元素 2. 判断是否越界
