@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.ArrayList;
+
 public class leetcode_13 {
     public int romanCharToInt(char c){
         switch(c){
@@ -37,6 +39,10 @@ public class leetcode_13 {
 
     public static void main(String[] args) {
         leetcode_13 solution = new leetcode_13();
-
+        ArrayList<Integer> result = new ArrayList<Integer>(10);
+        for(Integer i:result){
+            System.out.println("sad");
+            System.out.println(i);
+        }
     }
 }
