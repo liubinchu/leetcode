@@ -23,5 +23,6 @@ public class leetcode_53 {
     public static void main(String[] args) {
         Math.log(10);
         leetcode_53 solution = new leetcode_53();
+        System.out.println(Runtime.getRuntime().maxMemory());
     }
 }

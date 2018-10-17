@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class leetcode_62 {
     // 动态规划问题：第(i,j)位置的可达不同路径数目 n(i,j)= n(i-1,j)+n(i,j-1) 即 相邻位置可达路径数目之和， 边境点可达路径数==1
@@ -19,7 +20,9 @@ public class leetcode_62 {
 
     public static void main(String[] args) {
         leetcode_62 solution = new leetcode_62();
-        int [][] res = new int[10][2];
-        System.out.println(res[5][0]);
+        int [] res = new int[10];
+        System.out.println(res[5]);
+        System.out.println(Arrays.binarySearch(res,1));
+
     }
 }
