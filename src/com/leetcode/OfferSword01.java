@@ -1,5 +1,4 @@
 package com.leetcode;
-
 import java.math.BigDecimal;
 
 /**
