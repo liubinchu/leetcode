@@ -6,6 +6,8 @@ import java.util.*;
  * @author liubi
  * @date 2018-11-19 14:55
  **/
+class newStack extends Stack{
+}
 public class OfferSord07 {
     private void reConstruct(TreeNode root, int startIndex, int endIndex, int rootIndex, LinkedList<Integer> preQueue, int[] in){
         if(rootIndex<startIndex || rootIndex>endIndex || startIndex>endIndex) {
@@ -58,7 +60,26 @@ public class OfferSord07 {
         OfferSord07 solution = new OfferSord07();
         int[] pre =  {1,2,3,4};
         int[] in = {4,3,2,1};
+        Integer [] inNew = {0,1,2,3};
         TreeNode tree = solution.reConstructBinaryTree(pre,in);
-        System.out.println(tree.val);
+        List<Integer> newIn = new ArrayList<Integer>(Arrays.asList(inNew));
+        ListIterator<Integer> it = newIn.listIterator(4);
+        while (it.hasPrevious()){
+            System.out.println("  it.previous():"+it.previous()+"     it.nextIndex():"+it.nextIndex()+"   it.previousIndex():"+it.previousIndex());
+        }
+
+        ListIterator<Integer> i = newIn.listIterator(4);
+        while (i.hasPrevious()){
+            it.set(10);
+            System.out.println("     it.nextIndex():"+i.nextIndex()+"   it.previousIndex():"+i.previousIndex()+"  it.previous():"+i.previous());
+        }
+        Queue<Integer> queue  = new LinkedList<Integer>();
+        int num = 10;
+        while (num-- > 0){
+            queue.add(num);
+        }
+        System.out.println(queue.toString());
+
+
     }
 }
