@@ -6,8 +6,7 @@ import java.util.*;
  * @author liubi
  * @date 2018-11-19 14:55
  **/
-class newStack extends Stack{
-}
+
 public class OfferSord07 {
     private void reConstruct(TreeNode root, int startIndex, int endIndex, int rootIndex, LinkedList<Integer> preQueue, int[] in){
         if(rootIndex<startIndex || rootIndex>endIndex || startIndex>endIndex) {
@@ -79,6 +78,9 @@ public class OfferSord07 {
             queue.add(num);
         }
         System.out.println(queue.toString());
+        for(Integer i2 : inNew){
+            i2 += 10;
+        }
 
 
     }
