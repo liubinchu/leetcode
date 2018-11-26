@@ -13,6 +13,9 @@ class AException extends Exception{
     public String toString(){
         return "AException";
     }
+    public void  fun(){
+        System.out.println("fun()");
+    }
 }
 class BException extends Exception{
     @Override
@@ -35,22 +38,14 @@ public class Test {
 
     }
 
-    public static void main(String[] args) {
-        fun();
-        Scanner scanner = new Scanner("liubinchu is a person, 24 years old, likes John and LiZongSheng, 56.04 kg ");
-        while (scanner.hasNext()){
-            if(scanner.hasNextInt()){
-                System.out.println(scanner.nextInt());
-            }
-            else if(scanner.hasNextFloat()){
-                System.out.println(scanner.nextFloat());
-            }
-            else {
-                System.out.println(scanner.next());
-            }
-            System.out.println(scanner.ioException());
-            scanner.next();
-            scanner.match();
-        }
+    public static <number> void main(String[] args) throws IllegalAccessException, InstantiationException {
+            Object object = null;
+            Class scannerClass = AException.class;
+            object = scannerClass.newInstance();
+            System.out.println(object.toString());
+            AException aException = (AException) object;
+            aException.fun();
+            Integer integer = null;
+            Number number;
     }
 }
