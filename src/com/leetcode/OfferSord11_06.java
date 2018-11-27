@@ -4,7 +4,7 @@ package com.leetcode;
  * @author liubi
  * @date 2018-11-21 18:31
  **/
-public class OfferSord11 {
+public class OfferSord11_06 {
     private void reverseArray(int[] array, int startIndex, int length){
         int counter = length/2;
         while(counter-->0){
@@ -50,7 +50,7 @@ public class OfferSord11 {
         }
     }
     public static void main(String[] args) {
-        OfferSord11 solution = new OfferSord11();
+        OfferSord11_06 solution = new OfferSord11_06();
         int[] array = {1,2,3,4};
         solution.minNumberInRotateArray(array);
     }

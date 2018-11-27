@@ -7,7 +7,7 @@ import java.util.*;
  * @date 2018-11-19 14:55
  **/
 
-public class OfferSord07 {
+public class OfferSord07_04 {
     private void reConstruct(TreeNode root, int startIndex, int endIndex, int rootIndex, LinkedList<Integer> preQueue, int[] in){
         if(rootIndex<startIndex || rootIndex>endIndex || startIndex>endIndex) {
             return;
@@ -56,7 +56,7 @@ public class OfferSord07 {
     }
 
     public static void main(String[] args) {
-        OfferSord07 solution = new OfferSord07();
+        OfferSord07_04 solution = new OfferSord07_04();
         int[] pre =  {1,2,3,4};
         int[] in = {4,3,2,1};
         Integer [] inNew = {0,1,2,3};

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author liubi
  * @date 2018-11-19 10:07
  **/
-public class OfferSord05 {
+public class OfferSord05_02 {
     /* 该揭发时间复杂度O（n^2）
     public String replaceSpace(StringBuffer str) {
         for(int i =0;i<str.length();i++){
@@ -32,7 +32,7 @@ public class OfferSord05 {
         return newStr.toString();
     }
     public static void main(String[] args) {
-        OfferSord05 solution = new OfferSord05();
+        OfferSord05_02 solution = new OfferSord05_02();
         ArrayList<Integer> result = new ArrayList<>();
         result.add(100);
         System.out.println(result.get(0));

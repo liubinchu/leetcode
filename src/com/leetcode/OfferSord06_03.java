@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author liubi
  * @date 2018-11-19 10:43
  **/
-public class OfferSord06 {
+public class OfferSord06_03 {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> result = new ArrayList<>();
         ListNode currNode = listNode;
@@ -25,6 +25,6 @@ public class OfferSord06 {
         return result;
     }
     public static void main(String[] args) {
-        OfferSord06 solution = new OfferSord06();
+        OfferSord06_03 solution = new OfferSord06_03();
     }
 }

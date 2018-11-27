@@ -4,7 +4,7 @@ package com.leetcode;
  * @author liubi
  * @date 2018-11-22 21:07
  **/
-public class OfferSordJumpFloor {
+public class OfferSordJumpFloor_07 {
     public int JumpFloor(int target) {
         /**
          * 算法分析;
@@ -30,6 +30,6 @@ public class OfferSordJumpFloor {
         return res;
     }
     public static void main(String[] args) {
-        OfferSordJumpFloor solution = new OfferSordJumpFloor();
+        OfferSordJumpFloor_07 solution = new OfferSordJumpFloor_07();
     }
 }

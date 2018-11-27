@@ -4,7 +4,7 @@ package com.leetcode;
  * @author liubi
  * @date 2018-11-19 09:01
  **/
-public class OfferSord04 {
+public class OfferSord04_01 {
     public boolean Find(int target, int [][] array) {
         boolean finded = false;
         for(int[] subArray : array){
@@ -24,7 +24,7 @@ public class OfferSord04 {
         return finded;
     }
     public static void main(String[] args) {
-        OfferSord04 solution = new OfferSord04();
+        OfferSord04_01 solution = new OfferSord04_01();
         int[][] array = {{1,2},{3,4},{5,6}};
         solution.Find(10,array);
     }

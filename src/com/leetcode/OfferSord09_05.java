@@ -1,7 +1,5 @@
 package com.leetcode;
 
-import java.util.AbstractCollection;
-import java.util.Iterator;
 import java.util.Stack;
 
 /**
@@ -9,7 +7,7 @@ import java.util.Stack;
  * @date 2018-11-20 21:11
  **/
 
-public class OfferSord09 {
+public class OfferSord09_05 {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -28,6 +26,6 @@ public class OfferSord09 {
         return result;
     }
     public static void main(String[] args) {
-        OfferSord09 solution = new OfferSord09();
+        OfferSord09_05 solution = new OfferSord09_05();
     }
 }
