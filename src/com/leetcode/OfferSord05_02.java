@@ -27,7 +27,9 @@ public class OfferSord05_02 {
             if(curr == ' '){
                 newStr.append("%20");
             }
-            else newStr.append(curr);
+            else {
+                newStr.append(curr);
+            }
         }
         return newStr.toString();
     }
