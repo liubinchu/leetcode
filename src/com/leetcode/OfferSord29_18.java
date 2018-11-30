@@ -9,51 +9,55 @@ import java.util.List;
  * @date 2018-11-29 21:00
  **/
 public class OfferSord29_18 {
+    /**
+     *算法分析：经过分析 打印顺序 可以分为  0 down,1 left,2up,3 right 3--0--1--2--...
+     * 每次步数都等于 length -count 其中 count 第一次为0 第二次 1 接下来 每两次+1
+     * 根据规律 进行打印
+     * O（n）
+     * @param matrix
+     * @return
+     */
     public ArrayList<Integer> printMatrix(int [][] matrix) {
         ArrayList<Integer> res = new ArrayList<>();
         int m = matrix.length; // 行数
         int n= matrix[0].length; // 列数
         int i = 0 , j = -1;// pos
 
-        while(j<n-1){
-            res.add(matrix[i][++j]);
-        }
-        int maxStep = m<=n? m:n;// select smaller one
-        int step = 1;
-        int direction = 0;// range :0 down,1 left,2up,3 right
-        while(step<maxStep){
+        int count = 0;
+        int direction = 3;// range :0 down,1 left,2up,3 right 先向右打印横行
+        while(res.size()<m*n){
             switch (direction){
                 case 0:
-                    for(int count = 0 ; count < m-step ; count++){
+                    for(int step= 0 ; step< m-count ; step++){
                         res.add(matrix[++i][j]);
                     }
                     break;
                 case 1:
-                    for(int count = 0;count < n-step;count++){
+                    for(int step= 0;step< n-count;step++){
                         res.add(matrix[i][--j]);
                     }
-                    step++;
+                    count++;
                     break;
                 case 2:
-                    for(int count = 0;count < m-step;count++){
+                    for(int step= 0;step< m-count;step++){
                         res.add(matrix[--i][j]);
                     }
                     break;
                 case 3:
-                    for(int count = 0;count < n-step;count++){
+                    for(int step= 0;step< n-count;step++){
                         res.add(matrix[i][++j]);
                     }
-                    step++;
+                    count++;
                 default:
             }
             direction = (direction+1)%4;
         }
-        //System.out.println(res.toString()+" ");
+        System.out.println(res.toString());
         return  res;
     }
     public static void main(String[] args) {
         OfferSord29_18 solution = new OfferSord29_18();
-        int [][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        int [][] matrix = {{1},{5},{9}};
         solution.printMatrix(matrix);
     }
 }
