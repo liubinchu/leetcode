@@ -6,6 +6,7 @@ package com.leetcode;
  **/
 public class OfferSord33_22 {
     /**
+     * T :O(log_n)
      * 算法思想：序列的最后一个数 一定是根节点
      * 因为是二叉排序树 序列的前半部分 一定都小于 该数
      * 序列的后半部分 一定都大于该数
