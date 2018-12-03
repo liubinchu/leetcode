@@ -26,6 +26,17 @@ class DataLogger{
     }
 }
 public class OfferSord34_23 {
+    /**
+     * 算法分析： 采用BFS 的方法 遍历二叉树 遍历时 记录 访问到目前节点的path 还需要凑的数字 以及当前节点
+     * 路径结果 入栈顺序 按照 路径长度从小到大的顺序/ BFS 的特点
+     * T : O(n)
+     * S : O(n*m) m为路径的平均长度
+     * 思路二： 剑指offer 书中采用先序遍历的办法  但是路径的入栈顺序同路径的长度无关 因为深度优先
+     * 实际上 只要采用 先访问到根节点的遍历方法 都可以实现
+     * @param root
+     * @param target
+     * @return
+     */
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         Stack<ArrayList<Integer>> result = new Stack<ArrayList<Integer>>();
