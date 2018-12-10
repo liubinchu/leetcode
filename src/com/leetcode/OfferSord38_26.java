@@ -7,7 +7,18 @@ import java.util.*;
  * @date 2018-12-10 09:42
  **/
 public class OfferSord38_26 {
-    private <T> void  arrangement(Set<T> dataSet ,List<T> arrangement, int selectNum,Set<List<T>> result) throws Exception {
+    /**
+     * dataset中元素可以重复
+     * @param dataSet
+     * @param arrangement
+     * @param selectNum
+     * @param result
+     * @param index
+     * @param <T>
+     * @throws Exception
+     */
+
+    private <T> void  arrangement(LinkedList<T> dataSet ,List<T> arrangement, int selectNum,Set<List<T>> result) throws Exception {
         if(arrangement.size()> selectNum){
             throw new Exception("compute error");
         }
@@ -19,35 +30,27 @@ public class OfferSord38_26 {
         }
         else {
             for(T element : dataSet){
-                if(!arrangement.contains(element)){
-                    List<T> arrangementCopy = new ArrayList<>(arrangement);
-                    arrangementCopy.add(element);
-                    arrangement(dataSet,arrangementCopy,selectNum,result);
-                }
+                List<T> arrangementCopy = new ArrayList<>(arrangement);
+                arrangementCopy.add(element);
+                LinkedList<T> dataSetCopy = new LinkedList<>(dataSet);
+                dataSetCopy.remove(element);
+                arrangement(dataSetCopy,arrangementCopy,selectNum,result);
             }
         }
     }
 
-    private  void addElement(Set<Integer> dataSet,Integer element , int cycle){
-        if(dataSet.contains(element)){
-            addElement(dataSet,element+ cycle,cycle);
-        }
-        else {
-            dataSet.add(element);
-        }
-    }
     public ArrayList<String> Permutation(String str) throws Exception {
-        Set<Integer> dataSet=  new HashSet<>();
+        LinkedList<Character> dataSet=  new LinkedList<>();
         for(Character c : str.toCharArray()){
-            addElement(dataSet,(int)c,26);
+            dataSet.add(c);
         }
-        Set<List<Integer>> result = new HashSet<>();
-        arrangement(dataSet, new ArrayList<>(),dataSet.size(),result);
+        Set<List<Character>> result = new HashSet<>();
+        arrangement(dataSet,new ArrayList<>(),dataSet.size(),result);
         ArrayList<String> res = new ArrayList<>();
-        for(List<Integer> element : result){
+        for(List<Character> element : result){
             StringBuilder stringBuilder = new StringBuilder();
-            for(int c : element){
-                stringBuilder.append((char)(c%26+78));
+            for(Character c : element){
+                stringBuilder.append(c);
             }
             String arrangement = stringBuilder.toString();
             if(!res.contains(arrangement)){
@@ -59,9 +62,8 @@ public class OfferSord38_26 {
         return  res;
     }
 
-
     public static void main(String[] args) throws Exception {
         OfferSord38_26 solution = new OfferSord38_26();
-        solution.Permutation("aa");
+        solution.Permutation("aab");
     }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
  * @date 2018-12-09 21:35
  **/
 public class OfferSord36_25 {
-    /**
+    /**思路一：
      * 算法分析： 注意： 叶子节点 的左右 指针 应该 指向祖先节点
      * 左指针指向; 最后一个由右指针产生他/或者他的祖先 的 祖祖先节点
      * 右指针指向; 最后一个由左指针产生他/或者他的祖先 的 祖祖先节点
@@ -62,10 +62,43 @@ public class OfferSord36_25 {
             return null;
         }
         else{
-            ConvertFun(pRootOfTree,null,null);
+            //ConvertFun(pRootOfTree,null,null);
+            ConvertFun(pRootOfTree);
         }
         return findLeftest(pRootOfTree);
     }
+
+    /**
+     * 思路二： 利用二叉搜索树的中序 遍历顺序就是 元素的排列顺序 因此 在中序遍历的基础上进行指针变化
+     * 引申：二叉搜索树的线索话 也可以类似实现
+     * @param root
+     */
+    public void midOrderSearch(TreeNode root){
+        // 原始的中序遍历
+        if(root == null){
+            return;
+        }
+        midOrderSearch(root.left);
+        System.out.println(root.val);
+        midOrderSearch(root.right);
+    }
+    TreeNode lastNodeInList = null;
+    public void ConvertFun(TreeNode root){
+        if(root == null){
+            return;
+        }
+        ConvertFun(root.left);
+        // 将中序遍历的 遍历 部分 改为 更改指针的部分
+        root.left = lastNodeInList;
+        if(lastNodeInList!= null){
+            lastNodeInList.right = root;
+        }
+        lastNodeInList = root;
+        // 将中序遍历的 遍历 部分 改为 更改指针的部分
+
+        ConvertFun(root.right);
+    }
+
     public static void main(String[] args) {
         TreeNode root1 = new TreeNode(7);
         root1.left = new TreeNode(4);
@@ -81,18 +114,11 @@ public class OfferSord36_25 {
         root1.right.right.right =new TreeNode(12);
 
         OfferSord36_25 solution = new OfferSord36_25();
+        //solution.midOrderSearch(root1);
         root1 = solution.Convert(root1);
-        TreeNode p = root1;
-        System.out.print(p.val+" ");
-        while (p.left!=null){
-            p=p.left;
-            System.out.print(p.val+" ");
-
-        }
-        System.out.println(" ");
-        while (p!=null){
-            System.out.print(p.val+" ");
-            p=p.right;
+        while(root1!=null){
+            System.out.println(root1.val);
+            root1 = root1.right;
         }
     }
 }
