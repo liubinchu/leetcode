@@ -4,7 +4,7 @@ package com.leetcode;
  * @author liubi
  * @date 2018-12-10 20:49
  **/
-public class OFferSord42_29 {
+public class OfferSord42_29 {
     /**
      * 解法二： 动态规划：f（n） 表示以element_n 结尾的最大连续字串和 的值 那么 f（n）= max( f（n-1）+element_n , element_n )
      * 时间复杂度O（n）
@@ -67,7 +67,7 @@ public class OFferSord42_29 {
         }
     }
     public static void main(String[] args) {
-        OFferSord42_29 solution = new OFferSord42_29();
+        OfferSord42_29 solution = new OfferSord42_29();
         int[] input  ={-2,-8,-1,-5,-9};
         System.out.println(solution.FindGreatestSumOfSubArray(input));
     }
