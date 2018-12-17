@@ -31,7 +31,7 @@ class IntegerStringOrderCMP implements Comparator<Integer>{
  * 因此对于多个数字进行排列 求的最小值的过程 可以 退化成 将数字两两按照组合成的最小值进行排序。（两两排序的结果 能够得到多个数字排序最小值 需要证明 自反性，对称性，以及传递性）
  * 2. 如果两个数字的拼接 结果 超过 int/long 范围， 如果使用 double 会损失精度，一个常用的做法 是比较其字符串中的字符顺序（！！实用！！）
  */
-public class OfferSord45_35 {
+public class OfferSord45_31 {
     public String PrintMinNumber(int [] numbers) {
         StringBuilder stringBuilder = new StringBuilder();
         IntegerStringOrderCMP cmp = new IntegerStringOrderCMP();
@@ -47,7 +47,7 @@ public class OfferSord45_35 {
     }
 
     public static void main(String[] args) {
-        OfferSord45_35 solution = new OfferSord45_35();
+        OfferSord45_31 solution = new OfferSord45_31();
         int[] nums = {3,32,321};
         System.out.println(solution.PrintMinNumber(nums));
     }
