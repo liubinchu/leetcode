@@ -7,6 +7,12 @@ import java.util.*;
  * @date 2018-12-17 15:48
  **/
 public class OfferSord49_32 {
+    /**
+     * 解题思路：
+     * 解法一： 首先的想法是 依次判断0，1，2，3.。。。这些数是不是丑数
+     * 解法二： 上述过程依次的判断0，1，2，3.。。。 是否为丑数 对于不是丑数的数字 进行了冗余计算， 如果有算法能够生成下一个丑数 那么能够减少时间复杂度
+     * 假设 当前已经获得升序丑数序列， 那么下一个丑数一定是当前序列的数字 通过*2/3/5 的到的 并且是其中的最小值， 且要大于当前升序序列中的最大值。
+     */
     private Queue<Integer> uglyNumbers = new PriorityQueue<>();
     public int GetUglyNumber_Solution(int index) {
         this.uglyNumbers.offer(1);
@@ -55,7 +61,7 @@ public class OfferSord49_32 {
                     nextUglyNumber = t5;
                     break;
                 }
-                else if(t5>nextUglyNumber){
+                else if(t5>=nextUglyNumber){
                     break;
                 }
             }
