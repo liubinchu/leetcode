@@ -22,6 +22,18 @@ public class OfferSord55_37 {
     }
         return maxDeep;
     }
+
+    private int preOrderTraversal1(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        else {
+            int leftDeepth = preOrderTraversal1(root.left);
+            int rightDeepth = preOrderTraversal1(root.right);
+            return leftDeepth>rightDeepth? leftDeepth+1:rightDeepth+1;
+        }
+    }
+
     public int TreeDepth(TreeNode root) {
         this.maxDeep = 0; //在每次第一次调用递归时初始化该成员
         int deepth = preOrderTraversal(root,0);
