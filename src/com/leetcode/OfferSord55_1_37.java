@@ -8,7 +8,7 @@ import javafx.util.Pair;
  **/
 public class OfferSord55_1_37 {
     /**
-     * 解题报告：
+     * 解题报告：AVL树的条件 1. 左右子树是AVL树 2.当前树 左右子树的深度差 不超过一
      */
     private Boolean isAVLTree;
     private int preOrderTraversal(TreeNode root){
