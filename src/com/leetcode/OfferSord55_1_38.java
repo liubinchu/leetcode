@@ -1,12 +1,10 @@
 package com.leetcode;
 
-import javafx.util.Pair;
-
 /**
  * @author liubi
  * @date 2018-12-28 10:24
  **/
-public class OfferSord55_1_37 {
+public class OfferSord55_1_38 {
     /**
      * 解题报告：AVL树的条件 1. 左右子树是AVL树 2.当前树 左右子树的深度差 不超过一
      */
@@ -31,7 +29,7 @@ public class OfferSord55_1_37 {
         return this.isAVLTree;
     }
     public static void main(String[] args) {
-        OfferSord55_1_37 solution = new OfferSord55_1_37();
+        OfferSord55_1_38 solution = new OfferSord55_1_38();
         TreeNode root1 = new TreeNode(8);
         root1.left = new TreeNode(8);
         root1.right = new TreeNode(7);
