@@ -17,7 +17,7 @@ public class OfferSord57_1_41 {
      * @param sum
      * @return
      */
-    public ArrayList<Integer> FindNumbersWithSum(int [] array, int sum) {
+    public ArrayList<Integer> FindNumbersWithSum_1(int [] array, int sum) {
         ArrayList<Integer> result = new ArrayList<>();
         if(array.length == 0){
             return result;
@@ -45,6 +45,48 @@ public class OfferSord57_1_41 {
                     break;
                 }
             }
+        }
+        return result;
+    }
+
+    /**
+     * 算法分析：
+     * 时间复杂度O（n） 详见剑指offer 书籍
+     * @param array
+     * @param targetSum
+     * @return
+     */
+    public ArrayList<Integer> FindNumbersWithSum(int [] array, int targetSum) {
+        ArrayList<Integer> result = new ArrayList<>();
+        switch (array.length){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                if(array[0]+array[1]==targetSum){
+                    result.add(array[0]);
+                    result.add(array[1]);
+                }
+                break;
+            default:
+                int index1 = 0;
+                int index2 = array.length-1;
+                int sum ;
+                while(index1<index2){
+                    sum = array[index1]+ array[index2];
+                    if(sum<targetSum){
+                        index1++;
+                    }
+                    else if(sum>targetSum){
+                        index2--;
+                    }
+                    else if(sum==targetSum){
+                        result.add(array[index1]);
+                        result.add(array[index2]);
+                        break;
+                    }
+                }
         }
         return result;
     }
