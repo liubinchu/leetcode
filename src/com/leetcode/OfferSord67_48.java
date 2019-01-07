@@ -6,7 +6,6 @@ package com.leetcode;
  **/
 public class OfferSord67_48 {
     Boolean illegalInput = false;
-
     /**
      * 算法解析： 实现atoi 算法思想比较简单 但是难点在于考虑全面
      * 1.出现非法字符？
