@@ -4,9 +4,11 @@ package com.leetcode;
  * @author liubi
  * @date 2019-01-07 09:15
  **/
-public class OfferSord58_2_41 {
+public class OfferSord58_2_42 {
     /**
-     * 算法分析：时间复杂度O（1） 空间复杂度 O（1）
+     * 算法分析：
+     * 基本思路是两次翻转，先整体反转，再将字符串的两个部分分别反转 时间复杂度O（2*n） 空间复杂度 O（1）
+     * 但是java中有自带的subString函数，利用其 更优 时间复杂度O（1） 空间复杂度 O（1）
      * @param str
      * @param n
      * @return
@@ -23,7 +25,7 @@ public class OfferSord58_2_41 {
         return stringBuilder.toString();
     }
     public static void main(String[] args) {
-        OfferSord58_2_41 solution = new OfferSord58_2_41();
+        OfferSord58_2_42 solution = new OfferSord58_2_42();
         System.out.println(solution.LeftRotateString("abcXYZdef",3));
     }
 }
