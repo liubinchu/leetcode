@@ -7,6 +7,8 @@ package com.leetcode;
 public class OfferSord62_45 {
     /**
      * 约瑟夫环问题，通过公式推导 的到递推公式 能够用递归或者循环解决
+     * http://zhedahht.blog.163.com/blog/static/2541117420072250322938/
+     * 或者剑指offer书
      * LastRemaining_SolutionRecersive 递归版本
      * LastRemaining_SolutionLoop 循环版本
      * @param n
