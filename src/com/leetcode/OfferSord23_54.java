@@ -29,6 +29,12 @@ public class OfferSord23_54 {
         return pointer; // 当不存在环时，能够正常跳出循环，pointer == null
     }
 
+    /**
+     * 算法分析: 时间复杂度 O（n） 空间复杂度 O（n）
+     * 算法分析 ： 见OfferSord 和 注释
+     * @param pHead
+     * @return
+     */
     public ListNode EntryNodeOfLoop(ListNode pHead){
         if(pHead == null){
             // null element
@@ -69,9 +75,21 @@ public class OfferSord23_54 {
             // define the start element of the loop
             // loop 长度 为 length , 起始部分/非loop部分 长度 为 X
             // p1 p2 init with pHead
-            // p1 先走 length 步， 此时 p1，p2 同时向前走  设 走N步
-            // 因为 存在loop p2 定能 追上p1
-            // 当第一次相遇（此后进入循环 p1===p2），
+            // p1 先走 length 步， 此时 p1，p2 同时向前走  因为 存在loop p2 定能 追上p1
+            // 如果不存在环， 当p1 到达链表尾时（又走了X），p2 走了 X步， 正好到达 loop的入口
+            // 因为 存在loop p1到达链表尾时 p1===start of loop
+            // 当第一次相遇（此后进入循环 p1===p2），时 指针指向loop入口
+            p1 = pHead;
+            p2 = pHead;
+            while (length>0){
+                p1 = p1.next;
+                length--;
+            }
+            while (p1!=p2){
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+            return p1;
         }
     }
     public static void main(String[] args) {
