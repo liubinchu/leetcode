@@ -1,6 +1,8 @@
 package com.leetcode;
 
 /**
+ * 算法分析： 二叉树遍历的变形 关键在于设计对称的遍历算法，可以基于前中后三种顺序
+ * 实现基于前序进行变形
  * @author liubi
  * @date 2019-01-10 21:03
  **/
@@ -21,6 +23,7 @@ public class OfferSord28_57 {
         else if(left.val !=right.val){
             return false;
         }
+        //遍历当前节点
         else { //left.val == right.val
             return isSymmetricalCore(left.left,right.right)&& isSymmetricalCore(left.right,right.left);
         }
