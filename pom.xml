@@ -7,6 +7,7 @@
     <groupId>groupId</groupId>
     <artifactId>leetcode</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
@@ -14,7 +15,26 @@
             <artifactId>log4j-core</artifactId>
             <version>2.11.1</version>
         </dependency>
-    </dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.11.1</version>
+        </dependency>
 
+    </dependencies>
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.7.0</version>
+            <configuration>
+                <!--指定JDK版本-->
+                <source>10</source>
+                <target>10</target>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
 
 </project>
