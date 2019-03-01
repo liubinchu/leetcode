@@ -3,6 +3,7 @@ package com.leetcode;
 import java.util.ArrayList;
 
 public class leetcode_13 {
+
     public int romanCharToInt(char c){
         switch(c){
             case 'I':
@@ -26,10 +27,14 @@ public class leetcode_13 {
         int result = 0;
         int current = 0;
         int prev = romanCharToInt(s.charAt(0));
-        if(prev < 0) return -2;// 错误的罗马数字：出现了不合法字符
+        if(prev < 0) {
+            return -2;// 错误的罗马数字：出现了不合法字符
+        }
         for(int i=1 ;i <s.length();i++){
             current = romanCharToInt(s.charAt(i));
-            if(prev < current) prev = -prev;
+            if(prev < current) {
+                prev = -prev;
+            }
             result += prev ;
             prev = current;
         }
