@@ -1,12 +1,17 @@
 package com.leetcode;
 
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author liubi
  * @date 2019-02-20 20:45
  **/
 public class exam01 {
+    private AtomicInteger cnt = new AtomicInteger();
+    public void add() {
+        cnt.incrementAndGet(); // 调用了 Unsafe 的 getAndAddInt()
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x = -1, f = -1, d = -1, p = Integer.MAX_VALUE;
