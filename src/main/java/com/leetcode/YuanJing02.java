@@ -16,12 +16,10 @@ public class YuanJing02 {
         while (in.hasNext()){
             int t = in.nextInt();
             int v = in.nextInt();
-
             if(t==0 && v==0){
                 break;
             }
         }
-
     }
     public static void main(String[] args) {
         YuanJing02 solution = new YuanJing02();
