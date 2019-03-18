@@ -1,26 +1,29 @@
 package com.leetcode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JavaBasic {
-    class Inner{
-        private int data;
+    static List<Apple> apples = new ArrayList<Apple>();
+    static List<Fruit> fruit = new ArrayList<Fruit>();
+    static <T> void writeExact(List<T> list, T item) {
+        list.add(item);
     }
-    public Inner getInner(){
-        return new Inner();
+    static void f1() {
+        writeExact(apples, new Apple());
+        writeExact(fruit, new Apple());
     }
-    public void unstaticMethod(){
-        Inner inner = new Inner();
+    static <T> void writeWithWildcard(List<? super T> list, T item) {
+        list.add(item);
+    }
+    static void f2() {
+        writeWithWildcard(apples, new Apple());
+        writeWithWildcard(fruit, new Apple());
     }
     public static void main(String[] args) {
-        Integer a =125;
-        Integer b = 125;
-        System.out.println(a == b);
-        System.out.println(",");
-        Integer c =321;
-        Integer d = 321;
-        System.out.println(c==d);
-
+        f1(); f2();
     }
+
 }// write your code here
