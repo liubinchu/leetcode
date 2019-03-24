@@ -24,6 +24,9 @@ public class JavaBasic {
     }
     public static void main(String[] args) {
         f1(); f2();
+        Integer integer = 1;
+        Class<Integer> integerClass = Integer.class;
     }
+
 
 }// write your code here
