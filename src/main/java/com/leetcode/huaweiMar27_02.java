@@ -27,7 +27,7 @@ public class huaweiMar27_02{
     }
     public static double method(Integer b, LinkedList<Integer> save) {
         Iterator<Integer> it = save.iterator();
-        double max = 10000000;
+        double max = Double.MAX_VALUE;
         if (!it.hasNext()) {
             return 0;
         }
