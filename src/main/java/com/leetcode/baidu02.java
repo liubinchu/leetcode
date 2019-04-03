@@ -2,12 +2,16 @@ package com.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author liubi
  * @date 2019-04-02 20:39
  **/
 public class baidu02 {
+
     public static  class TreeNode {
         public int val;
         public TreeNode left;
@@ -44,7 +48,10 @@ public class baidu02 {
         }
         return treeNodes.get(0);
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
+
+        Lock lock = new ReentrantLock();
+        lock.tryLock(10, TimeUnit.SECONDS);
         int n = 4;
         List<Integer> values1 = new ArrayList<>();
         values1.add(-1);
