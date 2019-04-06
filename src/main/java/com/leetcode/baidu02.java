@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author liubi
@@ -49,9 +50,12 @@ public class baidu02 {
         return treeNodes.get(0);
     }
     public static void main(String[] args) throws InterruptedException {
-
         Lock lock = new ReentrantLock();
+        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
+        lock.newCondition();
+
         lock.tryLock(10, TimeUnit.SECONDS);
+        lock.lock();
         int n = 4;
         List<Integer> values1 = new ArrayList<>();
         values1.add(-1);
