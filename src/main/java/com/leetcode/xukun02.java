@@ -49,6 +49,26 @@ public class xukun02 {
     }
 
     public static void main(String[] args) {
-        System.out.println(fun(15,4));
+        Integer aInt = 1;
+        Integer bInt = 2;
+        Integer cInt = 3;
+        Integer dInt = 3;
+        Integer eInt = 321;
+        Integer fInt = 321;
+        Long gLong = 3L;
+        Long hLong = 2L;
+        Byte iByte = 1;
+        Byte jByte = 2;
+
+        System.out.println(cInt==dInt);
+        System.out.println(eInt==fInt);
+        System.out.println(cInt==(aInt+bInt));
+        System.out.println(cInt==(iByte+jByte));
+        System.out.println(cInt.equals(aInt+bInt));
+
+        System.out.println(gLong==(aInt+bInt));
+        System.out.println(gLong.equals(aInt+bInt));
+        System.out.println(gLong.equals(aInt+hLong));
+        //System.out.println(fun(15,4));
     }
 }

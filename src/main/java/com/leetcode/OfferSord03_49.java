@@ -1,7 +1,9 @@
 package com.leetcode;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * @author liubi
@@ -132,5 +134,7 @@ public class OfferSord03_49 {
         int[] dup = new int[1];
         solution.duplicate(numbers,numbers.length,dup);
         System.out.println(dup[0]);
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
     }
 }
