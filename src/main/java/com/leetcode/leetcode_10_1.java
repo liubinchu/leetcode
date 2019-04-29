@@ -4,7 +4,7 @@ package com.leetcode;
  * @author liubi
  * @date 2019-04-29 18:51
  **/
-public class leetcode10 {
+public class leetcode_10_1 {
     private String s;
     private String p;
 
@@ -48,7 +48,7 @@ public class leetcode10 {
     }
 
     public static void main(String[] args) {
-        leetcode10 solusion = new leetcode10();
+        leetcode_10_1 solusion = new leetcode_10_1();
         System.out.println(solusion.isMatch("", "c*c"));
     }
 }
