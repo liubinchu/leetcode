@@ -11,7 +11,7 @@ public class leetcode_5 {
     int resE = -2; // end index of res
 
     /**
-     * 动态规划 解法 : 二维动态规划 注意打表的顺序
+     * 动态规划 解法 : 二维动态规划 注意打表的顺序/或者使用递归
      * 时间复杂度 和 空间复杂度 都是 O(n2)
      * <p>
      * int [][] dpStatus ; // 0 未标记 -1 false 1 true
