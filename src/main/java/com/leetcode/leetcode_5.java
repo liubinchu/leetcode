@@ -10,64 +10,61 @@ public class leetcode_5 {
     int resS = -1; // start index of res
     int resE = -2; // end index of res
 
+
     /**
      * 动态规划 解法 : 二维动态规划 注意打表的顺序/或者使用递归
      * 时间复杂度 和 空间复杂度 都是 O(n2)
-     * <p>
-     * int [][] dpStatus ; // 0 未标记 -1 false 1 true
-     * private boolean dpFunc(int start, int end)  {
-     * if(start == end){
-     * return true;
-     * }
-     * else if  (start+1 == end){
-     * return this.s.charAt(start)==this.s.charAt(end);
-     * }
-     * else if(start <end){
-     * if(dpStatus[start+1][end-1]==0){
-     * //throw new Exception("wrong dp order");
-     * System.out.println("wrong dp order");
-     * }
-     * else if (dpStatus[start+1][end-1]==1 &&
-     * this.s.charAt(start)==this.s.charAt(end)){
-     * return true;
-     * }
-     * else {
-     * return false;
-     * }
-     * }
-     * else {
-     * //throw new Exception("wrong start and end index");
-     * System.out.println("wrong start and end index");
-     * }
-     * return false;
-     * }
-     * public String longestPalindromedp(String s)  {
-     * this.s = s;
-     * this.dpStatus = new int [s.length()][s.length()];
-     * for(int step = 0;step<s.length();step++){
-     * for(int start=0; start+step<s.length();start++){
-     * if(dpFunc(start,start+step)){
-     * dpStatus[start][start+step] = 1;
-     * if(step>(this.resE-this.resS)){
-     * this.resS = start;
-     * this.resE = start+step;
-     * }
-     * }
-     * else {
-     * dpStatus[start][start+step] = -1;
-     * }
-     * }
-     * }
-     * if(resS>resE){
-     * return "";
-     * }
-     * else {
-     * return this.s.substring(this.resS,this.resE+1);
-     * }
-     * }
      */
+    int[][] dpStatus; // 0 未标记 -1 false 1 true
+
+    private boolean dpFunc(int start, int end) {
+        if (start == end) {
+            return true;
+        } else if (start + 1 == end) {
+            return this.s.charAt(start) == this.s.charAt(end);
+        } else if (start < end) {
+            if (dpStatus[start + 1][end - 1] == 0) {
+                //throw new Exception("wrong dp order");
+                System.out.println("wrong dp order");
+            } else if (dpStatus[start + 1][end - 1] == 1 &&
+                    this.s.charAt(start) == this.s.charAt(end)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            //throw new Exception("wrong start and end index");
+            System.out.println("wrong start and end index");
+        }
+        return false;
+    }
+
+    public String longestPalindromedp(String s) {
+        this.s = s;
+        this.dpStatus = new int[s.length()][s.length()];
+        for (int step = 0; step < s.length(); step++) {
+            for (int start = 0; start + step < s.length(); start++) {
+                if (dpFunc(start, start + step)) {
+                    dpStatus[start][start + step] = 1;
+                    if (step > (this.resE - this.resS)) {
+                        this.resS = start;
+                        this.resE = start + step;
+                    }
+                } else {
+                    dpStatus[start][start + step] = -1;
+                }
+            }
+        }
+        if (resS > resE) {
+            return "";
+        } else {
+            return this.s.substring(this.resS, this.resE + 1);
+        }
+    }
+
     /**
      * 经观察， 可有中心向外扩散，检查是否是回文串， 时间复杂度O（n2）空间复杂度 O（1）
+     *
      * @param start
      * @param end
      * @return
@@ -87,28 +84,25 @@ public class leetcode_5 {
             Pair<Integer, Integer> odd = extendFromCenter(start, start);
             Pair<Integer, Integer> even;
             Pair<Integer, Integer> larger;
-            if(start+1<this.s.length()){
+            if (start + 1 < this.s.length()) {
                 even = extendFromCenter(start, start + 1);
-                if(odd.getValue()-odd.getKey()<even.getValue()-even.getKey()){
+                if (odd.getValue() - odd.getKey() < even.getValue() - even.getKey()) {
                     larger = even;
-                }
-                else{
+                } else {
                     larger = odd;
                 }
-            }
-            else {
+            } else {
                 larger = odd;
             }
-            if(larger.getValue()-larger.getKey()>this.resE-this.resS){
+            if (larger.getValue() - larger.getKey() > this.resE - this.resS) {
                 this.resS = larger.getKey();
                 this.resE = larger.getValue();
             }
         }
-        if(this.resS>this.resE){
+        if (this.resS > this.resE) {
             return "";
-        }
-        else {
-            return this.s.substring(this.resS,this.resE+1);
+        } else {
+            return this.s.substring(this.resS, this.resE + 1);
         }
     }
 
