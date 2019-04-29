@@ -5,6 +5,7 @@ package com.leetcode;
  * @date 2019-04-29 19:50
  **/
 public class leetcode_10_2 {
+    //倒序
     private String s;
     private String p;
     private boolean matchCore(int si , int pi){

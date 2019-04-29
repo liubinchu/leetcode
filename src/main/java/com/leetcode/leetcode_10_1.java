@@ -5,6 +5,7 @@ package com.leetcode;
  * @date 2019-04-29 18:51
  **/
 public class leetcode_10_1 {
+    // 正序
     private String s;
     private String p;
 
