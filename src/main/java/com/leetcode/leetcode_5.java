@@ -26,11 +26,8 @@ public class leetcode_5 {
             if (dpStatus[start + 1][end - 1] == 0) {
                 //throw new Exception("wrong dp order");
                 System.out.println("wrong dp order");
-            } else if (dpStatus[start + 1][end - 1] == 1 &&
-                    this.s.charAt(start) == this.s.charAt(end)) {
-                return true;
             } else {
-                return false;
+                return dpStatus[start + 1][end - 1] == 1 && this.s.charAt(start) == this.s.charAt(end);
             }
         } else {
             //throw new Exception("wrong start and end index");
