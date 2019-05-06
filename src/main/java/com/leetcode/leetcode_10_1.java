@@ -23,8 +23,6 @@ public class leetcode_10_1 {
                 return false;
             }
         }
-
-
         if ((pi < this.p.length() - 1) && this.p.charAt(pi + 1) == '*') {
             if (this.p.charAt(pi) == '.' || this.p.charAt(pi) == this.s.charAt(si)) {
                 return matchCore(si + 1, pi + 2) ||
