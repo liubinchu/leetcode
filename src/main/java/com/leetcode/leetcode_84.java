@@ -9,7 +9,12 @@ import java.util.Stack;
  * @author liubi
  * @date 2019-05-07 15:14
  * 显然可以用DP作，但是时空复杂度高
- * 利用单调栈的性质，可以优化DP
+ *  * 利用单调栈的思想，类似于 leetcode_42
+ *  * 单调栈一般用于 优化DP，最大的优势在于线性时间 和 空间
+ *  * 一般用于连续数组的问题
+ *  * https://blog.csdn.net/qy724728631/article/details/82350682
+ *  * https://blog.csdn.net/zuzhiang/article/details/78134247
+ *  * http://www.cnblogs.com/grandyang/p/8887985.html
  **/
 public class leetcode_84 {
     public int largestRectangleArea(int[] heights) {
