@@ -5,10 +5,10 @@ import java.util.ListIterator;
 
 /**
  * @author liubi
- * @date 2019-05-13 13:37
- * 输入一个表达式（合法），通过逆波兰表达式进行计算
+ * @date 2019-05-13 15:47
+ * 不得到逆波兰表达式，直接得到结果：在运算符进入逆波兰表达式时，计算结果
  **/
-public class Cal_By_Reverse_Polish_Notation {
+public class Cal_By_Reverse_Polish_Notation_1 {
     private int[][] op = new int[6][6]; // +-*/() 的index为012345， op[2][3] 表示当前元素*（2）和栈顶元素/（3）的大小关系为< (-1)
     private LinkedList<Pair<Boolean, Integer>> RPRStack = new LinkedList<>(); // 逆波兰表达式栈
     private LinkedList<Pair<Boolean, Integer>> opaStack = new LinkedList<>(); // 运算栈
@@ -83,9 +83,9 @@ public class Cal_By_Reverse_Polish_Notation {
         }
     }
 
-    private int cal(LinkedList<Integer> stack,Pair<Boolean, Integer> token) {
-        int num2 = stack.pop();
-        int num1 = stack.pop();
+    private int cal(Pair<Boolean, Integer> token) {
+        int num2 = RPRStack.pop().getValue();
+        int num1 = RPRStack.pop().getValue();
         switch (token.getValue()) {
             case 0:
                 return (num1 + num2);
@@ -102,8 +102,6 @@ public class Cal_By_Reverse_Polish_Notation {
     }
 
     public int evalRPN(String[] tokens) {
-
-        // 得到逆波兰表达式
         for (String tokenString : tokens) {
             Pair<Boolean, Integer> token = parseToken(tokenString);
             if (token.getKey()) {
@@ -114,7 +112,7 @@ public class Cal_By_Reverse_Polish_Notation {
                 while (!opaStack.isEmpty() && op[token.getValue()][opaStack.peek().getValue()] == -1) { // 0 illegal 没写
                     Pair<Boolean, Integer> top = opaStack.pop();
                     if (top.getValue() != 4 && top.getValue() != 5) {
-                        RPRStack.push(top);
+                        RPRStack.push(new Pair<>(true, cal(top))); //在运算符进入逆波兰表达式时，计算结果
                     }
                 }
                 if (token.getValue() != 5) {
@@ -124,55 +122,16 @@ public class Cal_By_Reverse_Polish_Notation {
         }
         ListIterator<Pair<Boolean, Integer>> it = opaStack.listIterator(opaStack.size());
         while (it.hasPrevious()) {
-            RPRStack.push(it.previous());
-        }
-        // 输出逆波兰表达式
-        LinkedList<Integer> numStack = new LinkedList<>();
-        ListIterator<Pair<Boolean, Integer>> iterator = RPRStack.listIterator(RPRStack.size());
-        while (iterator.hasPrevious()) {
-            Pair<Boolean, Integer> token = iterator.previous();
-            if (token.getKey()) {
-                System.out.println(token.getValue());
-            } else {
-                switch (token.getValue()) {
-                    case 0:
-                        System.out.println("+");
-                        break;
-                    case 1:
-                        System.out.println("-");
-                        break;
-                    case 2:
-                        System.out.println("*");
-                        break;
-                    case 3:
-                        System.out.println("/");
-                        break;
-                    case 4:
-                        System.out.println("（");
-                        break;
-                    case 5:
-                        System.out.println("（");
-                        break;
-                    default:
-                        System.out.println("error");
-                }
+            Pair<Boolean, Integer> opa = it.previous();
+            if (opa.getValue() != 4 && opa.getValue() != 5) {
+                RPRStack.push(new Pair<>(true, cal(opa)));
             }
         }
-        // 根据逆波兰表达是计算结果 -----leetcode_150
-        iterator = RPRStack.listIterator(RPRStack.size());
-        while (iterator.hasPrevious()) {
-            Pair<Boolean, Integer> token = iterator.previous();
-            if (token.getKey()) {
-                numStack.push(token.getValue());
-            } else {
-                numStack.push(cal(numStack,token));
-            }
-        }
-        return numStack.peek();
+        return RPRStack.peek().getValue();
     }
 
     public static void main(String[] args) {
-        Cal_By_Reverse_Polish_Notation solution = new Cal_By_Reverse_Polish_Notation();
+        Cal_By_Reverse_Polish_Notation_1 solution = new Cal_By_Reverse_Polish_Notation_1();
         String[] tokens = {"3", "*", "(", "5", "+", "7", "/", "9", ")", "+", "10"};
         System.out.println("res" + solution.evalRPN(tokens));
     }
