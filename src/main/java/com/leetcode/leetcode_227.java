@@ -4,10 +4,9 @@ import java.util.LinkedList;
 
 /**
  * @author liubi
- * @date 2019-05-13 17:04
- * 利用 逆波兰比表达式 计算
+ * @date 2019-05-13 21:59
  **/
-public class leetcode_224 {
+public class leetcode_227 {
     private LinkedList<Integer> stackOP = new LinkedList<>();
     private LinkedList<Integer> stackNum = new LinkedList<>();
     private int[][] op = new int[6][6];
@@ -61,6 +60,10 @@ public class leetcode_224 {
                 return (num1 + num2);
             case 1:
                 return (num1 - num2);
+            case 2:
+                return (num1 * num2);
+            case 3:
+                return (num1 / num2);
             default:
                 System.out.println("error");
                 return Integer.MAX_VALUE;
@@ -77,7 +80,7 @@ public class leetcode_224 {
                 numLast = numLast * 10 + c - '0';
                 currOP = false;
                 //stackNum.push(c-'0');
-            } else if (c == '+' || c == '-' || c == '(' || c == ')') {
+            } else if (c == '+' || c == '-' || c == '*' || c == '/') {
                 currOP = true;
                 if (!lastOP) {
                     stackNum.push(numLast);
@@ -90,11 +93,11 @@ public class leetcode_224 {
                     case '-':
                         OPcurr = 1;
                         break;
-                    case '(':
-                        OPcurr = 4;
+                    case '*':
+                        OPcurr = 2;
                         break;
-                    case ')':
-                        OPcurr = 5;
+                    case '/':
+                        OPcurr = 3;
                         break;
                     default:
                         OPcurr = 6;
@@ -119,12 +122,8 @@ public class leetcode_224 {
         }
         return stackNum.peek();
     }
-
     public static void main(String[] args) {
-        leetcode_224 solution = new leetcode_224();
-        String s = "2-4-(8+2-6+(8+4-(1)+8-10))";
-        System.out.println(solution.calculate(s));
-
-
+        leetcode_227 solution = new leetcode_227();
+        System.out.println(solution.calculate("3+2*2"));
     }
 }

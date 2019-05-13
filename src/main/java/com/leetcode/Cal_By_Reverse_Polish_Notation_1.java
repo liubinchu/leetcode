@@ -9,49 +9,49 @@ import java.util.ListIterator;
  * 不得到逆波兰表达式，直接得到结果：在运算符进入逆波兰表达式时，计算结果
  **/
 public class Cal_By_Reverse_Polish_Notation_1 {
-    private int[][] op = new int[6][6]; // +-*/() 的index为012345， op[2][3] 表示当前元素*（2）和栈顶元素/（3）的大小关系为< (-1)
     private LinkedList<Pair<Boolean, Integer>> RPRStack = new LinkedList<>(); // 逆波兰表达式栈
     private LinkedList<Pair<Boolean, Integer>> opaStack = new LinkedList<>(); // 运算栈
-
+    private int[][] op = new int[6][6];
+    // +-*/() 的index为012345， op[2][3] 表示当前元素*（2）和栈顶元素/（3）的大小关系为< (-1)
+    // (0表示相等 1 表示大于 -1小于 -2 非法)
     {
         op[0][0] = -1;
         op[0][1] = -1;
         op[0][2] = -1;
         op[0][3] = -1;
         op[0][4] = 1;
-        op[0][5] = 0;
+        op[0][5] = -2;
         op[1][0] = -1;
         op[1][1] = -1;
         op[1][2] = -1;
         op[1][3] = -1;
         op[1][4] = 1;
-        op[1][5] = 0;
+        op[1][5] = -2;
         op[2][0] = 1;
         op[2][1] = 1;
         op[2][2] = -1;
         op[2][3] = -1;
         op[2][4] = 1;
-        op[2][5] = 0;
+        op[2][5] = -2;
         op[3][0] = 1;
         op[3][1] = 1;
         op[3][2] = -1;
         op[3][3] = -1;
         op[3][4] = 1;
-        op[3][5] = 0;
+        op[3][5] = -2;
         op[4][0] = 1;
         op[4][1] = 1;
         op[4][2] = 1;
         op[4][3] = 1;
         op[4][4] = 1;
-        op[4][5] = 0;
+        op[4][5] = -2;
         op[5][0] = -1;
         op[5][1] = -1;
         op[5][2] = -1;
         op[5][3] = -1;
-        op[5][4] = -1;
-        op[5][5] = 0;
+        op[5][4] = 0;
+        op[5][5] = -2;
     }
-
     /**
      * @param token
      * @return Pair<true, Integer> if a number; Pair<false,Integer> if a operator +-* /() 的index为012345
@@ -63,21 +63,20 @@ public class Cal_By_Reverse_Polish_Notation_1 {
         } else {
             char first = token.charAt(0);
             if (token.length() == 1 && first == '+') {
-                res =  new Pair<>(false, 0);
+                res = new Pair<>(false, 0);
             } else if (token.length() == 1 && first == '-') {
-                res =  new Pair<>(false, 1);
+                res = new Pair<>(false, 1);
             } else if (token.length() == 1 && first == '*') {
-                res =  new Pair<>(false, 2);
+                res = new Pair<>(false, 2);
             } else if (token.length() == 1 && first == '/') {
-                res =  new Pair<>(false, 3);
+                res = new Pair<>(false, 3);
             } else if (token.length() == 1 && first == '(') {
-                res =  new Pair<>(false, 4);
+                res = new Pair<>(false, 4);
             } else if (token.length() == 1 && first == ')') {
-                res =  new Pair<>(false, 5);
-            }
-            else {
+                res = new Pair<>(false, 5);
+            } else {
                 try {
-                    res =  new Pair<>(true, Integer.parseInt(token));
+                    res = new Pair<>(true, Integer.parseInt(token));
                 } catch (Exception e) {
                     res = new Pair<>(false, 6);
                 }
@@ -112,11 +111,12 @@ public class Cal_By_Reverse_Polish_Notation_1 {
                 RPRStack.push(token);
             } else {
                 // operator
-                while (!opaStack.isEmpty() && op[token.getValue()][opaStack.peek().getValue()] == -1) { // 0 illegal 没写
+                while (!opaStack.isEmpty() && op[token.getValue()][opaStack.peek().getValue()] == -1) { // -2 illegal 没写
                     Pair<Boolean, Integer> top = opaStack.pop();
-                    if (top.getValue() != 4 && top.getValue() != 5) {
                         RPRStack.push(new Pair<>(true, cal(top))); //在运算符进入逆波兰表达式时，计算结果
-                    }
+                }
+                while (!opaStack.isEmpty() && op[token.getValue()][opaStack.peek().getValue()] ==0) { // -2 illegal 没写
+                    opaStack.pop();
                 }
                 if (token.getValue() != 5) {
                     opaStack.push(token);
