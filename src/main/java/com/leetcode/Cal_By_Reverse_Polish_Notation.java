@@ -57,30 +57,33 @@ public class Cal_By_Reverse_Polish_Notation {
      * @return Pair<true, Integer> if a number; Pair<false,Integer> if a operator +-* /() 的index为012345
      */
     private Pair<Boolean, Integer> parseToken(String token) {
+        Pair<Boolean, Integer> res = null;
         if (token == null || token.length() == 0) {
-            return new Pair<>(false, 6);
+            res = new Pair<>(false, 6);
         } else {
             char first = token.charAt(0);
-            if (first == '+') {
-                return new Pair<>(false, 0);
-            } else if (first == '-') {
-                return new Pair<>(false, 1);
-            } else if (first == '*') {
-                return new Pair<>(false, 2);
-            } else if (first == '/') {
-                return new Pair<>(false, 3);
-            } else if (first == '(') {
-                return new Pair<>(false, 4);
-            } else if (first == ')') {
-                return new Pair<>(false, 5);
-            } else {
+            if (token.length() == 1 && first == '+') {
+                res =  new Pair<>(false, 0);
+            } else if (token.length() == 1 && first == '-') {
+                res =  new Pair<>(false, 1);
+            } else if (token.length() == 1 && first == '*') {
+                res =  new Pair<>(false, 2);
+            } else if (token.length() == 1 && first == '/') {
+                res =  new Pair<>(false, 3);
+            } else if (token.length() == 1 && first == '(') {
+                res =  new Pair<>(false, 4);
+            } else if (token.length() == 1 && first == ')') {
+                res =  new Pair<>(false, 5);
+            }
+            else {
                 try {
-                    return new Pair<>(true, Integer.parseInt(token));
+                    res =  new Pair<>(true, Integer.parseInt(token));
                 } catch (Exception e) {
-                    return new Pair<>(false, 6);
+                    res = new Pair<>(false, 6);
                 }
             }
         }
+        return res;
     }
 
     private int cal(LinkedList<Integer> stack,Pair<Boolean, Integer> token) {
