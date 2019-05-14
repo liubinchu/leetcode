@@ -113,14 +113,11 @@ public class Cal_By_Reverse_Polish_Notation_1 {
                 RPRStack.push(token);
             } else {
                 // operator
-                while (!opaStack.isEmpty() &&
-                        (op[token.getValue()][opaStack.peek().getValue()] == -1
-                                ||op[token.getValue()][opaStack.peek().getValue()] == 0)
-                ) { // -2 illegal 没写
-                    Pair<Boolean, Integer> top = opaStack.pop();
-                    if (top.getValue() != 4) {
-                        RPRStack.push(top);
-                    }
+                while (!opaStack.isEmpty() && (op[token.getValue()][opaStack.peek().getValue()] == -1)) { // -2 illegal 没写
+                        RPRStack.push(opaStack.pop());
+                }
+                if(op[token.getValue()][opaStack.peek().getValue()] == 0){ // 一个 ） 匹配 一个 （
+                    opaStack.pop();
                 }
                 if (token.getValue() != 5) {
                     opaStack.push(token);
