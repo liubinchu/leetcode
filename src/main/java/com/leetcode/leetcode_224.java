@@ -1,6 +1,8 @@
 package com.leetcode;
 
 import java.util.LinkedList;
+import java.util.StringTokenizer;
+
 
 /**
  * @author liubi
@@ -8,6 +10,7 @@ import java.util.LinkedList;
  * 利用 逆波兰比表达式 计算
  **/
 public class leetcode_224 {
+
     private LinkedList<Integer> stackOP = new LinkedList<>();
     private LinkedList<Integer> stackNum = new LinkedList<>();
     private int[][] op = new int[6][6];
@@ -123,8 +126,11 @@ public class leetcode_224 {
     public static void main(String[] args) {
         leetcode_224 solution = new leetcode_224();
         String s = "2-4-(8+2-6+(8+4-(1)+8-10))";
-        System.out.println(solution.calculate(s));
-
-
+        String declim = "+|-|*|/| |(|)";
+        //System.out.println(solution.calculate(s));
+        StringTokenizer st = new StringTokenizer(s,declim,true);
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken());
+        }
     }
 }
