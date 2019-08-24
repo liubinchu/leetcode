@@ -1,7 +1,6 @@
 package com.leetcode;
 
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * @author liubi
@@ -173,9 +172,11 @@ public class Cal_By_Reverse_Polish_Notation_1 {
         return numStack.peek();
     }
 
+
     public static void main(String[] args) {
-        Cal_By_Reverse_Polish_Notation_1 solution = new Cal_By_Reverse_Polish_Notation_1();
+/*        Cal_By_Reverse_Polish_Notation_1 solution = new Cal_By_Reverse_Polish_Notation_1();
         String[] tokens = {"3", "*", "(", "5", "+", "7", "/", "9", ")", "+", "10"};
-        System.out.println("res" + solution.evalRPN(tokens));
+        System.out.println("res" + solution.evalRPN(tokens));*/
+
     }
 }

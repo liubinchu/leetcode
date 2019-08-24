@@ -1,5 +1,9 @@
 package com.leetcode;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author liubi
  * @date 2019-05-14 20:34
@@ -21,7 +25,22 @@ public class leetcode_226 {
         invertCore(root);
         return root;
     }
-    public static void main(String[] args) {
+    public static int tyrTest(){
+        try {
+            System.out.println("try test");
+            return 1;
+        }finally {
+            System.out.println("finally");
+        }
+    }
+    public static void main(String[] args) throws InterruptedException {
         leetcode_226 solution = new leetcode_226();
+        Lock lock = new ReentrantLock();
+        Condition condition = lock.newCondition();
+        condition.await();
+        condition.awaitNanos(100);
+        tyrTest();
+
+
     }
 }

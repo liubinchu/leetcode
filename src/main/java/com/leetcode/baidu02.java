@@ -1,7 +1,12 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -49,32 +54,10 @@ public class baidu02 {
         }
         return treeNodes.get(0);
     }
-    public static void main(String[] args) throws InterruptedException {
-        Lock lock = new ReentrantLock();
-        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-        lock.newCondition();
+    public static void main(String[] args) throws IOException {
+        List<String> list = new ArrayList<>();
+        List<String> synList = Collections.synchronizedList(list);
 
-        lock.tryLock(10, TimeUnit.SECONDS);
-        lock.lock();
-        int n = 4;
-        List<Integer> values1 = new ArrayList<>();
-        values1.add(-1);
-        values1.add(2);
-        values1.add(3);
-        values1.add(2);
-        List<List<Integer>> edges = new ArrayList<>();
-        List<Integer> edge1 = new ArrayList<>();
-        edge1.add(1);
-        edge1.add(2);
-        edges.add(edge1);
-        List<Integer> edge2 = new ArrayList<>();
-        edge2.add(1);
-        edge2.add(3);
-        edges.add(edge2);
-        List<Integer> edge3 = new ArrayList<>();
-        edge3.add(3);
-        edge3.add(4);
-        edges.add(edge3);
 
     }
 }
