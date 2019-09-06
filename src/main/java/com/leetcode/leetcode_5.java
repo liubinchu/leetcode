@@ -17,7 +17,7 @@ public class leetcode_5 {
      */
     int[][] dpStatus; // 0 未标记 -1 false 1 true
 
-    private boolean dpFunc(int start, int end) {
+    private  boolean  dpFunc(int start, int end) {
         if (start == end) {
             return true;
         } else if (start + 1 == end) {
@@ -61,7 +61,6 @@ public class leetcode_5 {
 
     /**
      * 经观察， 可有中心向外扩散，检查是否是回文串， 时间复杂度O（n2）空间复杂度 O（1）
-     *
      * @param start
      * @param end
      * @return
