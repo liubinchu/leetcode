@@ -79,6 +79,5 @@ public class beike04 {
             }
         }
         System.out.println(min_x+" "+max_y);
-
     }
 }

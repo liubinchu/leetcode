@@ -1,10 +1,10 @@
-package com.leetcode.Utils;
+package com.leetcode.Search;
 
 /**
  * @author liubi
  * @date 2019-09-08 10:40
  **/
-public class SequenceFind {
+public class SequenceSearch {
     public static int find(int[] array,int target) {
         if (array == null || array.length == 0) {
             return -1;

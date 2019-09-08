@@ -1,7 +1,7 @@
 package com.leetcode.Tree;
 
 import com.leetcode.TreeNode;
-import com.leetcode.Utils.SequenceFind;
+import com.leetcode.Search.SequenceSearch;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -67,7 +67,7 @@ public class OfferSord07_04 {
             return null;
         }
         TreeNode root = new TreeNode(pre[0]);
-        int index = SequenceFind.find(in, pre[0]);
+        int index = SequenceSearch.find(in, pre[0]);
 
         root.left = reConstructBinaryTree1(1 < index + 1 ?
                         Arrays.copyOfRange(pre, 1, index + 1) : null
@@ -89,7 +89,7 @@ public class OfferSord07_04 {
         } else {
             int rootVal = pre[preStart];
             TreeNode root = new TreeNode(rootVal);
-            int indexIn = SequenceFind.find(in, rootVal);
+            int indexIn = SequenceSearch.find(in, rootVal);
             int newLen = indexIn - inStart;
             root.left = reConBinTreeCore(preStart + 1, inStart, newLen);
             root.right = reConBinTreeCore(preStart + 1 + newLen, inStart + newLen + 1, len-1-newLen);

@@ -1,10 +1,10 @@
-package com.leetcode.Utils;
+package com.leetcode.Search;
 
 /**
  * @author liubi
  * @date 2019-09-08 09:27
  **/
-public class LowerBound {
+public class BinarySearch {
     /**
      * 二分查找 上界 有序数组 升序
      *

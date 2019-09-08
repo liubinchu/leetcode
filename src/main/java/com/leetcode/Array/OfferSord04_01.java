@@ -1,6 +1,6 @@
 package com.leetcode.Array;
 
-import com.leetcode.Utils.LowerBound;
+import com.leetcode.Search.BinarySearch;
 
 /**
  * @author liubi
@@ -33,7 +33,7 @@ public class OfferSord04_01 {
             int[] currLine = array[i];
             if (currLine != null && currLine.length != 0 &&
                     target >= currLine[0] & target <= currLine[currLine.length - 1]) {
-                int posIndex = LowerBound.find(currLine, target);
+                int posIndex = BinarySearch.find(currLine, target);
                 if (currLine[posIndex] == target) {
                     return true;
                 }
