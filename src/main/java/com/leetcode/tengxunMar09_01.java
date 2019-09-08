@@ -48,6 +48,7 @@ public class tengxunMar09_01 {
     }
 
     public static void main(String[] args) {
+
         for (int n = 1; n < 1000; n++) {
             for (int m = 0; m < 1000000; m++) {
                 int res1 = solution1(n, m);
