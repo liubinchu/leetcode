@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.Stack;
 
 import java.util.Stack;
 
@@ -27,9 +27,9 @@ public class OfferSord09_05 {
     */
 
     /**
-     *  相比于之前的算法, 两个栈之间元素的交换次数减少
+     * 相比于之前的算法, 两个栈之间元素的交换次数减少
      */
-    private Stack<Integer> stack1 = new Stack<Integer>();
+/*    private Stack<Integer> stack1 = new Stack<Integer>();
     private Stack<Integer> stack2 = new Stack<Integer>();
 
     public void push(int node) {
@@ -44,7 +44,24 @@ public class OfferSord09_05 {
             stack2.push(stack1.pop());
         }
         return stack2.pop();
+    }*/
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+
+    public void push(int node) {
+        while (!stack2.empty()) {
+            stack1.push(stack2.pop());
+        }
+        stack1.push(node);
     }
+
+    public int pop() {
+        while (!stack1.empty()) {
+            stack2.push(stack1.pop());
+        }
+        return stack2.pop();
+    }
+
     public static void main(String[] args) {
         OfferSord09_05 solution = new OfferSord09_05();
     }

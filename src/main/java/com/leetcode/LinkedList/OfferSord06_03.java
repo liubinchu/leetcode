@@ -1,8 +1,11 @@
-package com.leetcode;
+package com.leetcode.LinkedList;
+
+import com.leetcode.ListNode;
 
 import java.util.ArrayList;
 
 /**
+ * 本质上是反转链表
  * @author liubi
  * @date 2018-11-19 10:43
  **/
@@ -45,6 +48,17 @@ public class OfferSord06_03 {
             }
             return result;
         }
+    }
+
+    public ArrayList<Integer> printListFromTailToHead2(ListNode listNode) {
+        ArrayList<Integer> res = new ArrayList<>();
+        ListNode reversed = new ReverseLinkedList().reverseLinkedList(listNode);
+        ListNode p = reversed;
+        while (p!=null){
+            res.add(p.val);
+            p = p.next;
+        }
+        return res;
     }
     public static void main(String[] args) {
         OfferSord06_03 solution = new OfferSord06_03();

@@ -1,15 +1,16 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author liubi
  * @date 2019-09-07 10:02
  **/
 public class WeiCeLueYQQ01 {
+    private int a;
+    private int b;
+    private int c;
+
     public static boolean match(char a, char b) {
         if (a == '(' && b == ')') {
             return true;
@@ -43,9 +44,25 @@ public class WeiCeLueYQQ01 {
         return res;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WeiCeLueYQQ01 that = (WeiCeLueYQQ01) o;
+        return a == that.a &&
+                b == that.b &&
+                c == that.c;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b, c);
+    }
+
     public static void main(String[] args) {
-        int n = 2;
+        int n =2;
         String[] data = new String[]{"{}[]()", "{[}]}"};
         System.out.println(braces(new ArrayList<>(Arrays.asList(data))));
+
     }
 }
