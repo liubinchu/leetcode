@@ -1,4 +1,6 @@
-package com.leetcode;
+package com.leetcode.Tree;
+
+import com.leetcode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,22 +11,25 @@ import java.util.Stack;
  * @author liubi
  * @date 2018-12-03 11:04
  **/
-class DataLogger{
-    ArrayList<Integer> path ;
+class DataLogger {
+    ArrayList<Integer> path;
     TreeNode root;
     int reserved;
-    DataLogger(int path, TreeNode root, int reserved){
+
+    DataLogger(int path, TreeNode root, int reserved) {
         this.path = new ArrayList<>();
         this.path.add(path);
         this.root = root;
         this.reserved = reserved;
     }
-    DataLogger(ArrayList<Integer> path , TreeNode root,int reserved){
+
+    DataLogger(ArrayList<Integer> path, TreeNode root, int reserved) {
         this.path = path;
         this.reserved = reserved;
         this.root = root;
     }
 }
+
 public class OfferSord34_23 {
     /**
      * 算法分析： 采用BFS 的方法 遍历二叉树 遍历时 记录 访问到目前节点的path 还需要凑的数字 以及当前节点
@@ -33,41 +38,66 @@ public class OfferSord34_23 {
      * S : O(n*m) m为路径的平均长度
      * 思路二： 剑指offer 书中采用先序遍历的办法  但是路径的入栈顺序同路径的长度无关 因为深度优先
      * 实际上 只要采用 先访问到根节点的遍历方法 都可以实现
+     *
      * @param root
      * @param target
      * @return
      */
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         Stack<ArrayList<Integer>> result = new Stack<ArrayList<Integer>>();
-        if(root == null||root.val>target) {
+        if (root == null || root.val > target) {
             return res;
         }
         Queue<DataLogger> BFSQueue = new LinkedList<>();
-        BFSQueue.offer(new DataLogger(root.val,root,target - root.val));
-        while(!BFSQueue.isEmpty()){
+        BFSQueue.offer(new DataLogger(root.val, root, target - root.val));
+        while (!BFSQueue.isEmpty()) {
             DataLogger curent = BFSQueue.poll();
-            if(curent.root.left==null && curent.root.right==null && curent.reserved==0){
+            if (curent.root.left == null && curent.root.right == null && curent.reserved == 0) {
                 result.push(curent.path);
-            }
-            else if(curent.root.left!= null && curent.root.left.val<=curent.reserved){
+            } else if (curent.root.left != null && curent.root.left.val <= curent.reserved) {
                 ArrayList<Integer> path = (ArrayList<Integer>) curent.path.clone();
                 path.add(curent.root.left.val);
-                DataLogger left = new DataLogger(path, curent.root.left, curent.reserved-curent.root.left.val);
+                DataLogger left = new DataLogger(path, curent.root.left, curent.reserved - curent.root.left.val);
                 BFSQueue.offer(left);
             }
-            if(curent.root.right!=null&& curent.root.right.val<=curent.reserved){
+            if (curent.root.right != null && curent.root.right.val <= curent.reserved) {
                 ArrayList<Integer> path = (ArrayList<Integer>) curent.path.clone();
                 path.add(curent.root.right.val);
-                DataLogger right = new DataLogger(path, curent.root.right, curent.reserved-curent.root.right.val);
+                DataLogger right = new DataLogger(path, curent.root.right, curent.reserved - curent.root.right.val);
                 BFSQueue.offer(right);
             }
         }
-        while(!result.empty()){
+        while (!result.empty()) {
             res.add(result.pop());
         }
         return res;
     }
+
+    ArrayList<ArrayList<Integer>> paths;
+    public void DFS(TreeNode root, int target, ArrayList<Integer> currPath) {
+        if (root == null || root.val > target) {
+            return;
+        } else if (root.val == target) {
+            currPath.add(root.val);
+            if(root.left==null&&root.right==null){
+                this.paths.add(currPath);
+            }
+        } else {
+            //root.cal < target
+            currPath.add(root.val);
+            DFS(root.left,target-root.val,new ArrayList<>(currPath));
+            DFS(root.right,target-root.val,new ArrayList<>(currPath));
+        }
+    }
+
+    public ArrayList<ArrayList<Integer>> FindPathDFS(TreeNode root, int target) {
+        // In DFS way
+        this.paths = new ArrayList<>();
+        DFS(root, target, new ArrayList<Integer>());
+        return this.paths;
+    }
+
     public static void main(String[] args) {
         OfferSord34_23 solution = new OfferSord34_23();
         TreeNode root = new TreeNode(10);
@@ -75,6 +105,6 @@ public class OfferSord34_23 {
         root.right = new TreeNode(12);
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(7);
-        ArrayList<ArrayList<Integer>> res = solution.FindPath(root,22);
+        ArrayList<ArrayList<Integer>> res = solution.FindPath(root, 22);
     }
 }
