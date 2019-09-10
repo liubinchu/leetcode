@@ -1,4 +1,6 @@
-package com.leetcode;
+package com.leetcode.LinkedList;
+
+import com.leetcode.ListNode;
 
 public class leetcode_21 {
     /**

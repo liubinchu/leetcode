@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.BitOperation;
 
 /**
  * @author liubi
@@ -20,8 +20,8 @@ public class OfferSord15_10 {
                 // 使用位运算 代替 模运算 number%2
                 res++;
             }
-            number = number & (~1);
-            number = number >>>1;
+            // number = number & (~1); 该操作 将最后一位置为0
+            number = number >>>1; // >>> 无符号移位，高位补0， 因此无须上一步：将最后一位置为0
         }
         return res;
     }
@@ -63,8 +63,19 @@ public class OfferSord15_10 {
         }
         return  res;
     }
+
+    public int NumberOf1_4(int n) {
+        int res = 0;
+        while (n!=0){
+            if((n&1)==1){
+                res++;
+            }
+            n=n>>>1;
+        }
+        return res;
+    }
     public static void main(String[] args) {
         OfferSord15_10 solution = new OfferSord15_10();
-        System.out.println(solution.NumberOf1_3(10));
+        System.out.println(solution.NumberOf1_4(1));
     }
 }

@@ -20,30 +20,13 @@ public class OfferSordSuperJumpFloor_08 {
         }
         return res;
     }
-    static class father{
-        public void f1(){
-            System.out.println("f1");
-        }
 
-        public father() {
-        }
+    public static int powOfTwo(int n) {
+        int res =1 ;
+        return res<<n;
     }
-    static class son extends father{
-        public void f1(){
-            System.out.println("son f1");
-        }
-        public void f2(){
-            System.out.println("f2");
-        }
-
-        public son() {
-        }
-    }
-
-
 
     public static void main(String[] args) {
-        System.out.println(Math.floor(-1.6));
-        System.out.println(Math.ceil(-1.6));
+        System.out.println(powOfTwo(5));
     }
 }

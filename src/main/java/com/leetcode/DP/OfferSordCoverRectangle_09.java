@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.DP;
 
 /**
  * @author liubi
@@ -33,6 +33,27 @@ public class OfferSordCoverRectangle_09 {
             return res;
         }
     }
+
+    int[] dp ;
+    public void dpFun(int n){
+        this.dp = new int[n];
+        this.dp[0] = 1;
+        this.dp[1] = 2;
+        for(int i=2;i<n;i++){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+    }
+    public int RectCover1(int target) {
+        if(target<1){
+            return 1;
+        }
+        else if(target==1||target==2){
+            return target;
+        }
+        dpFun(target);
+        return this.dp[target-1];
+    }
+
     public static void main(String[] args) {
         OfferSordCoverRectangle_09 solution = new OfferSordCoverRectangle_09();
     }

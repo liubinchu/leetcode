@@ -1,4 +1,6 @@
-package com.leetcode;
+package com.leetcode.LinkedList;
+
+import com.leetcode.ListNode;
 
 /**
  * @author liubi
@@ -27,6 +29,22 @@ public class OfferSord24_14 {
             }
             return  pre;
         }
+    }
+
+    public ListNode ReverseList1(ListNode head) {
+        if (head==null||head.next==null){
+            return head;
+        }
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next;
+        while (curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
     public static void main(String[] args) {
         OfferSord24_14 solution = new OfferSord24_14();

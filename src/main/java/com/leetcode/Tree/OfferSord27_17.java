@@ -1,4 +1,6 @@
-package com.leetcode;
+package com.leetcode.Tree;
+
+import com.leetcode.TreeNode;
 
 /**
  * @author liubi
@@ -19,6 +21,17 @@ public class OfferSord27_17 {
             Mirror(root.right);
         }
     }
+    public void Mirror1(TreeNode root) {
+        if(root==null){
+            return;
+        }
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+        Mirror1(root.left);
+        Mirror1(root.right);
+    }
+
     public static void main(String[] args) {
         OfferSord27_17 solution = new OfferSord27_17();
     }

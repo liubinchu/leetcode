@@ -1,8 +1,9 @@
-package com.leetcode;
+package com.leetcode.Tree;
+
+import com.leetcode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -29,6 +30,27 @@ public class OfferSord32_21 {
             }
             if(treeNode.right!=null){
                 levelOrder.offer(treeNode.right);
+            }
+        }
+        return res;
+    }
+
+    public ArrayList<Integer> levelOrdetTravel(TreeNode root) {
+        Queue<TreeNode> levelOrder = new LinkedList<>();
+        ArrayList<Integer> res = new ArrayList<>();
+        if(root==null){
+            return res;
+        }else {
+            levelOrder.offer(root);
+            while (!levelOrder.isEmpty()){
+              TreeNode curr = levelOrder.poll();
+              res.add(curr.val);
+              if(curr.left!=null){
+                  levelOrder.offer(curr.left);
+              }
+                if(curr.right!=null){
+                    levelOrder.offer(curr.right);
+                }
             }
         }
         return res;

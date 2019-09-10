@@ -1,8 +1,6 @@
-package com.leetcode;
+package com.leetcode.Array;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author liubi
