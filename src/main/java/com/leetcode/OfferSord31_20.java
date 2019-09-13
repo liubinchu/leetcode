@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import java.util.Stack;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author liubi
@@ -74,7 +75,9 @@ public class OfferSord31_20 {
             }
             stack.pop();
         }
+        ConcurrentHashMap c = new ConcurrentHashMap(10);
         return true;
+
     }
 
     public static void main(String[] args) {

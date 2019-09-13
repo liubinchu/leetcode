@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.Loop;
 
 
 import java.util.ArrayList;
