@@ -17,16 +17,19 @@ public class DFSByStack {
         while (!dfsStack.empty()) {
             TreeNode current = dfsStack.pop();
             // visit
-            if (current.left!=null){
+            if (current.left != null) {
                 dfsStack.push(current.left);
             }
-            if (current.right!=null){
+            if (current.right != null) {
                 dfsStack.push(current.right);
             }
         }
     }
 
     public static void main(String[] args) {
-
+        while (true) {
+            new Thread();
+            new Integer(10);
+        }
     }
 }
