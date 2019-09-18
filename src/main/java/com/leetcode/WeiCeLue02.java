@@ -9,7 +9,7 @@ import java.util.Set;
  * @author liubi
  * @date 2019-04-04 19:58
  **/
-public class MicroStrategy01yqq {
+public class WeiCeLue02 {
 
     static void fun(List<String> a, List<String> b){
         for(int i=0;i<a.size();i++){
