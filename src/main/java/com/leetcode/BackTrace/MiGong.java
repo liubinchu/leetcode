@@ -83,20 +83,13 @@ public class MiGong {
         }
     }
 
-    public void doSome() {
-        Object[] objects = new Object[2];
-        for (int i = 0; i < objects.length; i++) {
-            objects[i] = new Object();
-        }
-    }
 
     public static void main(String[] args) throws InterruptedException {
-/*        System.out.println(System.currentTimeMillis());
+      System.out.println(System.currentTimeMillis());
         fromI = 0;
         fromJ = 0;
-        new MiGong().check(fromI, fromJ);
-        System.out.println(System.currentTimeMillis());*/
-        System.out.println(Thread.currentThread().getPriority());
-        System.out.println(new Thread().getPriority());
+        check(fromI, fromJ);
+        System.out.println(System.currentTimeMillis());
+
     }
 }
